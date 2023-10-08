@@ -1,4 +1,4 @@
-import logging
+import time
 from aiogram import Bot, Dispatcher, executor, types, md
 from aiogram.dispatcher import FSMContext
 from aiogram.utils import executor
@@ -220,7 +220,7 @@ class UserDatabase:
         self.conn.close()
 
 
-API_TOKEN = "<yours>"
+API_TOKEN = "5928607840:AAGksh5flObyYDWTQ2UM4ZXHFLYHjRlqJEs"
 PASSWORD = "batman"
 PASSWORD_ADMIN = "superman"
 
@@ -564,4 +564,9 @@ async def echo(message: types.Message):
 
 if __name__ == '__main__':
     executor.start(dp, msg("I am awake and ready to work."))
-    executor.start_polling(dp, skip_updates=True)
+    while True: 
+        try:
+            executor.start_polling(dp, skip_updates=True)
+        except Exception as e:
+            print(e)
+            time.sleep(5) 
